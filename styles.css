@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -7,32 +6,45 @@
 
 #wrapper{
     height: 100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-    perspective:10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 10px;
 }
 
+/* muje overlap krwani h images - mtlb position relative aur absolute honi chahiye */
 .container{
-    position:relative;
+    position: relative;
+    height: 100%;
     display: flex;
-    justify-content:center;
-    align-items:center;
-    height:100%;
-    transform-style: preserve-3d;
-    
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; /*related to line number 11 */
+    z-index: -1;
 }
 
 .background{
-    transform:translateZ(-40px) scale(5);
+    transform: translateZ(-40px) scale(5);
 }
 
 .foreground{
-    transform:translateZ(-20px) scale(3);
+    transform: translateZ(-20px) scale(3);
 }
 
 .background, .foreground{
-    position:absolute;
-    height:100%;
-    width:100%;
-    z-index:-1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+h1{
+    position: absolute;
+    font-size: 10rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 4px;
 }
